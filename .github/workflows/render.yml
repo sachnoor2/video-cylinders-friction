@@ -21,7 +21,22 @@ jobs:
         run: npm ci
 
       - name: Install ffmpeg
-        run: command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+        run: |
+          if command -v ffmpeg >/dev/null 2>&1; then
+            ffmpeg -version | head -1
+            exit 0
+          fi
+          sudo apt-get update \
+            -o Acquire::Retries=3 -o Acquire::http::Timeout=25 -o Acquire::https::Timeout=25 || true
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ffmpeg || true
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            curl -fsSL --max-time 180 -o /tmp/ff.tar.xz \
+              https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
+            tar -xJf /tmp/ff.tar.xz -C /tmp
+            sudo cp /tmp/ffmpeg-*-static/ffmpeg /tmp/ffmpeg-*-static/ffprobe /usr/local/bin/
+          fi
+          ffmpeg -version | head -1
+          ffprobe -version | head -1
 
       - name: Install Kokoro TTS
         run: pip install --quiet kokoro-onnx numpy
