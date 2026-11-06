@@ -1,0 +1,55 @@
+{
+  "fps": 30,
+  "engine": "kokoro",
+  "voice": "am_michael",
+  "lang": "en-us",
+  "speed": 1.0,
+  "pad": 0.75,
+  "minSeconds": 4.0,
+  "scenes": [
+    {
+      "id": "01-title",
+      "text": "Two cylinders are spinning. We press them together, and friction takes over. Find the speeds once the slipping stops. This is problem twenty five, a classic in rotational motion."
+    },
+    {
+      "id": "02-setup",
+      "text": "Cylinder one has radius r one and moment of inertia I one. It spins at angular speed omega one. Cylinder two has its own radius, its own inertia, and its own speed. Both axes are fixed and parallel."
+    },
+    {
+      "id": "03-contact",
+      "text": "Now bring the rims together. The surfaces touch at a single point and slide against each other. Friction appears at that contact, and it acts on both cylinders. Equal in size, opposite in direction."
+    },
+    {
+      "id": "04-impulse",
+      "text": "For as long as they slip, that friction keeps pushing. Both cylinders receive the same impulse. But the impulse acts at a different radius on each. Torque is impulse times radius, so the angular kicks differ."
+    },
+    {
+      "id": "05-equations",
+      "text": "On cylinder one the friction opposes the spin, so omega one falls. On cylinder two it drives the spin up. Each change equals the angular impulse divided by the moment of inertia."
+    },
+    {
+      "id": "06-noslip",
+      "text": "Slipping ends when the surfaces stop sliding past each other. At that moment the rim speeds are equal. Radius times angular speed, the same on both sides."
+    },
+    {
+      "id": "07-eliminate",
+      "text": "So we have two changes in speed, and one matching condition. The friction impulse is the unknown, and it sits in both equations. Eliminate it, and only the final speeds are left."
+    },
+    {
+      "id": "08-answer",
+      "text": "Here is the result. Omega one dash is r two times the weighted sum of the two spins, divided by I one r two squared plus I two r one squared. Omega two dash is the same thing, with the radii swapped."
+    },
+    {
+      "id": "09-check",
+      "text": "Test the answer on two identical cylinders. One is spinning, the other is still. The formula gives each of them half the original speed. Half the energy is gone, which is what sliding friction should do."
+    },
+    {
+      "id": "10-energy",
+      "text": "A warning before we finish. Do not conserve energy here. While the rims slide, friction turns rotation into heat. Angular momentum about either single axis is not conserved either, because the two friction torques differ in size."
+    },
+    {
+      "id": "11-recap",
+      "text": "So the whole idea in one line. Equal and opposite friction, acting at different radii, until the rim speeds match. Two equations, one answer, and both cylinders turn at the speeds we found."
+    }
+  ]
+}
