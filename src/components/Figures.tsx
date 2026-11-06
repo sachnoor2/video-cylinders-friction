@@ -282,7 +282,7 @@ export const Bars: React.FC<{heights: number[]; labels?: string[]; accent?: stri
   const w = 110;
   const gap = 60;
   const base = 330;
-  const total = heights.length * w + (heights.length - 1) * gap + 120;
+  const total = heights.length * w + (heights.length - 1) * gap + 170;
   return (
     <svg width={total} height={430} viewBox={`0 0 ${total} 430`}>
       <line x1={30} y1={base} x2={total - 30} y2={base} stroke={palette.rule} strokeWidth={4} strokeLinecap="round" />
