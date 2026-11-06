@@ -360,7 +360,7 @@ const Energy: React.FC<SceneProps> = ({dur}) => {
         </Rise>
       </div>
       <div style={{flex: 0.9, display: 'flex', justifyContent: 'center'}}>
-        <Bars heights={[250, 125]} labels={['before', 'after']} accent={palette.amberDeep} caption="rotational energy, identical cylinders" />
+        <Bars heights={[250, 125]} labels={['before', 'after']} accent={palette.amberDeep} caption="rotational energy" />
       </div>
     </Stage>
   );
