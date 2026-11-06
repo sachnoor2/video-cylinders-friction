@@ -1,0 +1,61 @@
+{
+  "fps": 30,
+  "totalFrames": 3300,
+  "scenes": [
+    {
+      "id": "01-title",
+      "seconds": 10.0,
+      "frames": 300
+    },
+    {
+      "id": "02-setup",
+      "seconds": 10.0,
+      "frames": 300
+    },
+    {
+      "id": "03-contact",
+      "seconds": 10.0,
+      "frames": 300
+    },
+    {
+      "id": "04-impulse",
+      "seconds": 10.0,
+      "frames": 300
+    },
+    {
+      "id": "05-equations",
+      "seconds": 10.0,
+      "frames": 300
+    },
+    {
+      "id": "06-noslip",
+      "seconds": 10.0,
+      "frames": 300
+    },
+    {
+      "id": "07-eliminate",
+      "seconds": 10.0,
+      "frames": 300
+    },
+    {
+      "id": "08-answer",
+      "seconds": 10.0,
+      "frames": 300
+    },
+    {
+      "id": "09-check",
+      "seconds": 10.0,
+      "frames": 300
+    },
+    {
+      "id": "10-energy",
+      "seconds": 10.0,
+      "frames": 300
+    },
+    {
+      "id": "11-recap",
+      "seconds": 10.0,
+      "frames": 300
+    }
+  ]
+}
