@@ -66,17 +66,24 @@ const Label: React.FC<{
   </>
 );
 
-/* A curved arrow over a cylinder showing which way it turns. */
-const SpinArc: React.FC<{cx: number; cy: number; r: number; ccw: boolean; color: string; label: string}> = ({
-  cx,
-  cy,
-  r,
-  ccw,
-  color,
-  label,
-}) => {
-  const a0 = ccw ? -0.34 : Math.PI + 0.34;
-  const a1 = ccw ? Math.PI + 0.34 : -0.34;
+/*
+ * A curved arrow drawn inside the top of a cylinder showing which way it turns.
+ * Angles are measured with y pointing down, so a decreasing angle travels
+ * counter-clockwise on screen; the arc always runs over the top, never under
+ * the body, and stays small enough that the two arrows never cross.
+ */
+const SpinArc: React.FC<{
+  cx: number;
+  cy: number;
+  R: number;
+  ccw: boolean;
+  color: string;
+  label: string;
+}> = ({cx, cy, R, ccw, color, label}) => {
+  const r = R * 0.78;
+  const swing = 0.14;
+  const a0 = ccw ? -swing : -Math.PI + swing;
+  const a1 = ccw ? -Math.PI + swing : -swing;
   const [x1, y1] = pt(cx, cy, r, a1);
   const vx = ccw ? Math.sin(a1) : -Math.sin(a1);
   const vy = ccw ? -Math.cos(a1) : Math.cos(a1);
@@ -85,7 +92,7 @@ const SpinArc: React.FC<{cx: number; cy: number; r: number; ccw: boolean; color:
     <>
       <path d={arcPath(cx, cy, r, a0, a1)} fill="none" stroke={color} strokeWidth={7} strokeLinecap="round" />
       <Head x={x1} y={y1} angle={angle} color={color} size={19} />
-      <Label x={cx} y={cy - r - 20} size={42} color={color}>
+      <Label x={cx} y={cy - R - 26} size={42} color={color}>
         {label}
       </Label>
     </>
@@ -214,8 +221,8 @@ export const CylinderPair: React.FC<{
 
       {showOmega ? (
         <>
-          <SpinArc cx={c1x} cy={cy} r={R1 + 44} ccw color={tint} label="ω₁" />
-          <SpinArc cx={c2x} cy={cy} r={R2 + 44} ccw={false} color={tint2} label="ω₂" />
+          <SpinArc cx={c1x} cy={cy} R={R1} ccw color={tint} label="ω₁" />
+          <SpinArc cx={c2x} cy={cy} R={R2} ccw={false} color={tint2} label="ω₂" />
         </>
       ) : null}
 
